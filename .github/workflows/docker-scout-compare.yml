@@ -54,6 +54,11 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v6
         with:
+          context: .
+          file: ./docker/images/n8n/Dockerfile
+          #build-args: |
+          #  N8N_RELEASE_TYPE=development
+          platforms: linux/amd64
           sbom: ${{ github.event_name != 'pull_request' }}
           provenance: ${{ github.event_name != 'pull_request' }}
           push: ${{ github.event_name != 'pull_request' }}
