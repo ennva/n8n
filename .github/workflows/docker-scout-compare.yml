@@ -24,6 +24,9 @@ jobs:
       pull-requests: write
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       # Authenticate to the container registry
       - name: Authenticate to registry ${{ env.REGISTRY }}
         uses: docker/login-action@v3
