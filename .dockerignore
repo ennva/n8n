@@ -14,7 +14,7 @@ packages/**/*.test.*
 *.tsbuildinfo
 packages/cli/dist/**/e2e.*
 docker/compose
-# docker/**/Dockerfile
+docker/**/Dockerfile
 .vscode
 cypress
 test-workflows
