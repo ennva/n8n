@@ -18,10 +18,18 @@ jobs:
       - run:
           name: Install Docker CLI & Buildx
           command: |
-            sudo apt-get update
-            sudo apt-get install -y docker.io
-            docker version
+            curl -fsSL https://get.docker.com -o get-docker.sh
+            sh get-docker.sh
+
+            # Ensure docker group exists and the current user is in it
+            sudo usermod -aG docker $USER || true
+
+            # Enable Docker Buildx
             docker buildx version || docker buildx create --use
+
+            # Show installed versions
+            docker version
+            docker buildx version
 
       - run:
           name: Authenticate to Docker registry
