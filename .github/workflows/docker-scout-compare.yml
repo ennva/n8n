@@ -60,7 +60,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v6
         with:
-          context: ./docker/images/n8n
+          context: .
           file: ./docker/images/n8n/Dockerfile
           #build-args: |
           #  N8N_RELEASE_TYPE=development
