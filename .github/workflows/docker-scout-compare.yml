@@ -48,6 +48,9 @@ jobs:
             type=semver,pattern=v{{version}}
             type=sha,prefix=,suffix=,format=short
 
+      - name: Debug workspace
+        run: ls -la ./docker/images/n8n/
+
       # Build and push Docker image with Buildx
       # (don't push on PR, load instead)
       - name: Build and push Docker image
